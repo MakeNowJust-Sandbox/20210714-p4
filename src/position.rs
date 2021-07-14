@@ -24,8 +24,10 @@ impl Position {
 
     pub fn play_string<S: Into<String>>(&mut self, s: S) {
         for c in s.into().chars() {
-            let column = (c as u64) - ('1' as u64);
-            self.play_column(column);
+            if '1' <= c && c <= '7' {
+                let column = (c as u64) - ('1' as u64);
+                self.play_column(column);
+            }
         }
     }
 
@@ -183,12 +185,12 @@ impl fmt::Display for Position {
                 let position = 1 << j * (HEIGHT + 1) + (HEIGHT - i);
                 if self.mask & position != 0 {
                     if self.current_position & position != 0 {
-                        write!(f, " {} ", current_player)?;
+                        write!(f, "  {} ", current_player)?;
                     } else {
-                        write!(f, " {} ", opponent)?;
+                        write!(f, "  {} ", opponent)?;
                     }
                 } else {
-                    write!(f, " . ")?;
+                    write!(f, "  . ")?;
                 }
             }
             write!(f, "\n")?;

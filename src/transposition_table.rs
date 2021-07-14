@@ -69,11 +69,11 @@ impl<K: FromKey + Eq, V: Clone + Default> TranspositionTable<K, V> {
     }
 }
 
-trait FromKey {
+pub trait FromKey {
     fn from_key(key: u64) -> Self;
 }
 
-trait IntoKey<K> {
+pub trait IntoKey<K> {
     fn into_key(self) -> K;
 }
 

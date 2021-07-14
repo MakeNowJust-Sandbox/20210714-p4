@@ -6,7 +6,7 @@ use super::transposition_table::*;
 const TABLE_BIT_SIZE: u32 = 24;
 const TABLE_SIZE: usize = next_prime(1 << TABLE_BIT_SIZE) as usize;
 
-const INVALID_MOVE: i32 = -1000;
+pub const INVALID_MOVE: i32 = -1000;
 
 pub struct Solver {
     trans_table: TranspositionTable<u64, u8>,
@@ -31,6 +31,10 @@ impl Solver {
             node_count: 0,
             book: book,
         }
+    }
+
+    pub fn reset_node_count(&mut self) {
+        self.node_count = 0;
     }
 
     pub fn get_node_count(&self) -> u64 {

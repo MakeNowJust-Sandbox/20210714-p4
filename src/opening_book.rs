@@ -14,7 +14,7 @@ pub struct OpeningBook {
 }
 
 impl OpeningBook {
-    pub fn load(path: &Path) -> io::Result<OpeningBook> {
+    pub fn load<P: AsRef<Path>>(path: P) -> io::Result<OpeningBook> {
         let mut file = File::open(path)?;
 
         let mut meta = [0u8; 6];
