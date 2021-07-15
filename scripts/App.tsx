@@ -53,8 +53,8 @@ export const App = () => {
               </p>
               <p>
                 ソースコードは{" "}
-                <a href="https://github.com/MakeNowJust-Labo/p4">
-                  https://github.com/MakeNowJust-Labo/p4
+                <a href="https://github.com/MakeNowJust-Sandbox/20210714-p4">
+                  https://github.com/MakeNowJust-Sandbox/20210714-p4
                 </a>{" "}
                 で公開されています。
               </p>
