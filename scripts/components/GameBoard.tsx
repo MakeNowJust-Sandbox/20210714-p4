@@ -49,7 +49,7 @@ export const GameBoard = () => {
 
       const rect = canvas.current.getBoundingClientRect();
       const mouseX = event.clientX - rect.x;
-      const column = Math.floor(mouseX / (WIDTH / COLUMN_NUMBER)) + 1;
+      const column = Math.floor(mouseX / (rect.width / COLUMN_NUMBER)) + 1;
 
       if (column <= 0 || COLUMN_NUMBER < column || !canPlay(board, column)) {
         return;
