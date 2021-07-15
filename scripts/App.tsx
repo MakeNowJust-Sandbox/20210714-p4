@@ -42,10 +42,25 @@ export const App = () => {
                 </li>
               </ul>
               <h2>実装について</h2>
-              <p>α-β法による枝刈りを行う反復深化探索によって、可能な局面をすべて探索しています。詳細については、<a href="http://blog.gamesolver.org">この記事</a>を確認してください。</p>
-              <p>また、実装は Rust で行い、WebAssembly にビルドすることでブラウザ上で実行できるようにしています。</p>
-              <p>ソースコードは <a href="https://github.com/MakeNowJust-Labo/p4">https://github.com/MakeNowJust-Labo/p4</a> で公開されています。</p>
-              <p className="has-text-centered"><small>2021 (C) TSUYUSATO "MakeNowJust" Kitsune</small></p>
+              <p>
+                α-β法による枝刈りを行う反復深化探索によって、可能な局面をすべて探索しています。詳細については、
+                <a href="http://blog.gamesolver.org">この記事</a>
+                を確認してください。
+              </p>
+              <p>
+                また、実装は Rust で行い、WebAssembly
+                にビルドすることでブラウザ上で実行できるようにしています。
+              </p>
+              <p>
+                ソースコードは{" "}
+                <a href="https://github.com/MakeNowJust-Labo/p4">
+                  https://github.com/MakeNowJust-Labo/p4
+                </a>{" "}
+                で公開されています。
+              </p>
+              <p className="has-text-centered">
+                <small>2021 (C) TSUYUSATO "MakeNowJust" Kitsune</small>
+              </p>
             </div>
           </div>
         </div>
