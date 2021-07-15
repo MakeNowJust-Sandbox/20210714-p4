@@ -140,7 +140,13 @@ export const GameBoard = () => {
 
   return (
     <div className="container p-4">
-      <canvas onClick={onClick} width={WIDTH} height={HEIGHT} ref={canvas} />
+      <canvas
+        style={{ maxWidth: "100%" }}
+        onClick={onClick}
+        width={WIDTH}
+        height={HEIGHT}
+        ref={canvas}
+      />
     </div>
   );
 };

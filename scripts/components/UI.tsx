@@ -67,6 +67,8 @@ export const UI = () => {
             評価値を{guide ? "隠す" : "表示"}
           </button>
         </p>
+      </div>
+      <div className="field has-addons">
         <p className="control">
           <button onClick={resetHistory} className="button">
             最初から
