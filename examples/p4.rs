@@ -1,12 +1,8 @@
+extern crate p4;
 extern crate rustyline;
 extern crate structopt;
 
-mod move_sorter;
-mod opening_book;
-mod position;
-mod solver;
-mod transposition_table;
-
+use std::fs::File;
 use std::io;
 use std::path::PathBuf;
 use std::time::Instant;
@@ -15,9 +11,7 @@ use rustyline::error::ReadlineError;
 use rustyline::Editor;
 use structopt::*;
 
-use opening_book::OpeningBook;
-use position::Position;
-use solver::{Solver, INVALID_MOVE};
+use p4::*;
 
 #[derive(StructOpt, Debug)]
 #[structopt(name = "c4")]
@@ -39,8 +33,11 @@ fn main() -> io::Result<()> {
     let opt = Opt::from_args();
 
     let book = match opt.book {
-        Some(path) => Some(OpeningBook::load(path)?),
-        None => None
+        Some(path) => {
+            let mut file = File::open(path)?;
+            Some(OpeningBook::load(&mut file)?)
+        }
+        None => None,
     };
     let mut solver = Solver::new(book);
 
@@ -84,13 +81,9 @@ fn main() -> io::Result<()> {
 
                 prev.clear();
                 prev.push_str(line.as_str());
-            },
-            Err(ReadlineError::Interrupted) => {
-                break
-            },
-            Err(ReadlineError::Eof) => {
-                break
-            },
+            }
+            Err(ReadlineError::Interrupted) => break,
+            Err(ReadlineError::Eof) => break,
             Err(err) => {
                 let message = format!("Error: {:?}", err);
                 return Err(io::Error::new(io::ErrorKind::Other, message));

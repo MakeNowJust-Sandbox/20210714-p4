@@ -8,6 +8,7 @@ const TABLE_SIZE: usize = next_prime(1 << TABLE_BIT_SIZE) as usize;
 
 pub const INVALID_MOVE: i32 = -1000;
 
+#[derive(Debug)]
 pub struct Solver {
     trans_table: TranspositionTable<u64, u8>,
     column_order: Vec<u64>,

@@ -1,22 +1,19 @@
-use std::fs::File;
 use std::io;
 use std::io::prelude::*;
-use std::path::Path;
 
 use super::position::*;
 use super::transposition_table::*;
 
 const TABLE_SIZE_24: usize = next_prime(1 << 24) as usize;
 
+#[derive(Debug)]
 pub struct OpeningBook {
     depth: u64,
     trans_table: TranspositionTable<u8, u8>,
 }
 
 impl OpeningBook {
-    pub fn load<P: AsRef<Path>>(path: P) -> io::Result<OpeningBook> {
-        let mut file = File::open(path)?;
-
+    pub fn load<F: Read>(file: &mut F) -> io::Result<OpeningBook> {
         let mut meta = [0u8; 6];
         file.read_exact(&mut meta)?;
         let [width, height, depth, partial_key_bytes, value_bytes, log_size] = meta;

@@ -20,6 +20,7 @@ pub const fn next_prime(n: u64) -> u64 {
     }
 }
 
+#[derive(Debug)]
 pub struct TranspositionTable<K, V> {
     pub keys: Box<[K]>,
     pub values: Box<[V]>,
