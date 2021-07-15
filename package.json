@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "rimraf dist pkg && webpack",
-    "start": "rimraf dist pkg && webpack serve --open"
+    "build": "webpack",
+    "start": "webpack serve --open"
   },
   "devDependencies": {
     "@sucrase/webpack-loader": "^2.0.0",
@@ -13,7 +13,6 @@
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.0.0",
     "mini-css-extract-plugin": "^2.1.0",
-    "rimraf": "^3.0.0",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.1.0",
