@@ -14,7 +14,7 @@ use structopt::*;
 use p4::*;
 
 #[derive(StructOpt, Debug)]
-#[structopt(name = "c4")]
+#[structopt(name = "p4")]
 struct Opt {
     #[structopt(short, long)]
     verbose: bool,
